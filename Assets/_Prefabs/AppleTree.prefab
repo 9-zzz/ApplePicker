@@ -43,8 +43,25 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 455928}
+  - 114: {fileID: 11493662}
   m_Layer: 0
   m_Name: AppleTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &184852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 408690}
+  - 108: {fileID: 10863374}
+  m_Layer: 0
+  m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,6 +79,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 455928}
   m_RootOrder: 1
+--- !u!4 &408690
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184852}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: 0, y: 1.72111118, z: 0}
+  m_LocalScale: {x: 1.91234553, y: 1.91234565, z: 1.91234565}
+  m_Children: []
+  m_Father: {fileID: 455928}
+  m_RootOrder: 2
 --- !u!4 &416740
 Transform:
   m_ObjectHideFlags: 1
@@ -81,11 +110,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalScale: {x: .70375371, y: .70375365, z: .70375365}
   m_Children:
   - {fileID: 416740}
   - {fileID: 404078}
+  - {fileID: 408690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2331040
@@ -167,6 +197,61 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!108 &10863374
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184852}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 0
+  m_Color: {r: 1, g: .161764681, b: .80344826, a: 1}
+  m_Intensity: 6.0999999
+  m_Range: 16.0100002
+  m_SpotAngle: 72.5735016
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_NormalBias: .400000006
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 2.5
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11493662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f8964e85d10134ea427a869c622723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applePrefab: {fileID: 142004, guid: cac4bd9cc30d7f74b86f2b7ec435b656, type: 2}
+  speed: 3
+  leftAndRightEdge: 7
+  chanceToChangeDirections: .100000001
+  secondsBetweenAppleDrops: 2
+  dropTimes:
+  - 2
+  - 2
+  - 1
+  - 1
+  - .25
+  - .25
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
