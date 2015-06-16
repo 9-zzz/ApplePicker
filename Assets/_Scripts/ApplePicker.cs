@@ -42,6 +42,7 @@ public class ApplePicker : MonoBehaviour
         // Restart the game, which doesn't affect HighScore.Score
         if (basketList.Count == 0)
         {
+            print("none left but should happen after i reset static score to zero in apple script");
             Application.LoadLevel(0);
         }
     }

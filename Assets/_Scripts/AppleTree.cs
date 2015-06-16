@@ -5,6 +5,7 @@ public class AppleTree : MonoBehaviour
 {
     // Prefab for instantiating apples
     public GameObject applePrefab;
+    public GameObject gApplePrefab;
 
     // Speed at which the AppleTree moves in meters/second
     public float speed = 1f;
@@ -27,10 +28,18 @@ public class AppleTree : MonoBehaviour
 
     IEnumerator dropApple()
     {
-        while(true)
+        while (true)
         {
-        yield return new WaitForSeconds(dropTimes[Random.Range(0,6)]);
-        DropApple();
+            yield return new WaitForSeconds(dropTimes[Random.Range(0, 6)]);
+            DropApple();
+
+            if (Random.Range(0, 50) == 1)
+            {
+                GameObject gapple = Instantiate(gApplePrefab) as GameObject;
+                Destroy(gapple.gameObject, 5.0f);// no penalty.
+                gapple.transform.position = transform.position;
+                gapple.GetComponent<Rigidbody>().AddRelativeForce(0, -3, 0, ForceMode.Impulse);
+            }
         }
     }
 

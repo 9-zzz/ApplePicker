@@ -16,6 +16,13 @@ public class Apple : MonoBehaviour
 
         // Get a reference to the ApplePicker component of Main Camera
         ApplePicker apScript = Camera.main.GetComponent<ApplePicker>(); // 1
+
+        if (apScript.basketList.Count == 1)
+        {
+            print("only one left and right before i die!!!");
+            apScript.basketList[0].GetComponent<Basket>().gameOver();
+        }
+
         // Call the public AppleDestroyed() method of apScript
         apScript.AppleDestroyed();
 

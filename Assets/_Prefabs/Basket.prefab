@@ -89,6 +89,7 @@ MonoBehaviour:
   score: 0
   gravity: 9.80000019
   appleFX: {fileID: 140354, guid: f2a0d8687355f32499bb36f2ab7f6b41, type: 2}
+  gappleFX: {fileID: 197154, guid: c8abe960c5058c447836311aba2c4379, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -116,6 +117,10 @@ Prefab:
       propertyPath: appleFX
       value: 
       objectReference: {fileID: 140354, guid: f2a0d8687355f32499bb36f2ab7f6b41, type: 2}
+    - target: {fileID: 0}
+      propertyPath: gappleFX
+      value: 
+      objectReference: {fileID: 197154, guid: c8abe960c5058c447836311aba2c4379, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129028}

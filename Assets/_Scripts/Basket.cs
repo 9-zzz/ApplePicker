@@ -6,14 +6,16 @@ public class Basket : MonoBehaviour
 {
 
     public Text scoreText;
-    public int score = 0;
+    public static int score = 0;
     public float gravity = 9.8f;
     public GameObject appleFX;
+    public GameObject gappleFX;
+
+    public bool go = false;
 
     // Use this for initialization
     void Start()
     {
-
         scoreText = GameObject.Find("scoreText").GetComponent<Text>();
     }
 
@@ -31,12 +33,29 @@ public class Basket : MonoBehaviour
         Vector3 pos = this.transform.position;
         pos.x = mousePos3D.x;
         this.transform.position = pos;
+
+        scoreText.text = "SCORE: " + score;
+    }
+
+    public void gameOver()
+    {
+        score = 0;
     }
 
     void OnCollisionEnter(Collision coll)
     {
         // Find out what hit this basket
         GameObject collidedWith = coll.gameObject;
+
+        if (collidedWith.tag == "GApple")
+        {
+            score += 500;
+            GameObject.Find("highScoreText").GetComponent<highScore>().score = score;
+            var gFX = Instantiate(gappleFX, collidedWith.transform.position, collidedWith.transform.rotation) as GameObject;
+            Destroy(gFX.gameObject, 1.35f);
+            Destroy(collidedWith);
+        }
+
         if (collidedWith.tag == "Apple")
         {
             var FX = Instantiate(appleFX, collidedWith.transform.position, collidedWith.transform.rotation) as GameObject;
@@ -51,12 +70,13 @@ public class Basket : MonoBehaviour
             score += 100;
 
 
-            scoreText.text = "SCORE: " + score;
 
             GameObject.Find("highScoreText").GetComponent<highScore>().score = score;
 
             Destroy(collidedWith);
         }
+
+
     }
 
 }
